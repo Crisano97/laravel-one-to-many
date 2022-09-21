@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@dump($post->user->posts)
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
