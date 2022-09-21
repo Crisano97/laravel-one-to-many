@@ -16,6 +16,7 @@
                         <th>ID</th>
                         <th>Author</th>
                         <th>Title</th>
+                        <th>Category</th>
                         <th></th>
                     </thead>
                     <tbody>
@@ -24,6 +25,11 @@
                                 <td>{{ $post->id }}</td>
                                 <td>{{ $post->user->name }}</td>
                                 <td>{{ $post->title }}</td>
+                                <td>
+                                    <span class="badge" style="background-color: {{ $post->category->color }}">
+                                        {{ $post->category->name }}
+                                    </span>
+                                </td>
                                 <td>
                                     <a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-sm btn-primary">
                                         View
