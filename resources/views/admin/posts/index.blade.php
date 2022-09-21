@@ -26,8 +26,14 @@
                                 <td>{{ $post->user->name }}</td>
                                 <td>{{ $post->title }}</td>
                                 <td>
-                                    <span class="badge" style="background-color: {{ $post->category->color }}">
-                                        {{ $post->category->name }}
+                                    <span class="badge text-white" 
+                                        @if (isset($post->category))
+                                            style="background-color: {{ $post->category->color }}">
+                                            {{ $post->category->name }}
+                                        @else
+                                            style="background-color: red">
+                                            -
+                                        @endif
                                     </span>
                                 </td>
                                 <td>

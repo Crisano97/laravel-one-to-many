@@ -4,6 +4,20 @@
     @include('admin.posts.includes.errors', ['value' => 'title'])
 </div>
 <div class="mb-3">
+    <select id="input-category" class="form-control" name="category">
+        <option value="">no category</option>
+        @foreach ($categories as $category)
+            <option value="{{ old('category', $category->id )}}">
+                @isset($post->category)
+                    {{ $category->id === $post->category->id ? 'selected' : ''}}
+                @endisset
+                {{ old('category', $category->name )}}
+            </option>
+        @endforeach
+    </select>
+    @include('admin.posts.includes.errors', ['value' => 'category'])
+</div>
+<div class="mb-3">
     <label for="input-post_content" class="form-label">post content</label>
     <textarea class="form-control" name="post_content" id="input-post_content" cols="30" rows="10">{{ old('post_content', $post->post_content) }}</textarea>
     @include('admin.posts.includes.errors', ['value' => 'post_content'])

@@ -7,6 +7,15 @@
             <div class="card text-center ">
                 <img src="{{ $post->post_image }}" class="card-img-top" alt="{{ $post->title }}">
                 <div class="card-body">
+                    <span class="badge text-white" 
+                        @if (isset($post->category))
+                            style="background-color: {{ $post->category->color }}">
+                            {{ $post->category->name }}
+                        @else
+                            style="background-color: red">
+                            -
+                        @endif
+                    </span>
                     <h5 class="card-title">{{ $post->title }}</h5>
                     <span>{{ $post->user->name }}</span>
                     <span>{{ $post->post_date }}</span>
