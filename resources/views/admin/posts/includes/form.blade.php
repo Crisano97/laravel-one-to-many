@@ -4,13 +4,14 @@
     @include('admin.posts.includes.errors', ['value' => 'title'])
 </div>
 <div class="mb-3">
-    <select id="input-category" class="form-control" name="category">
+    <select id="input-category" class="form-control" name="category_id">
         <option value="">no category</option>
         @foreach ($categories as $category)
-            <option value="{{ old('category', $category->id )}}">
+            <option value="{{ old('category', $category->id )}}"
                 @isset($post->category)
                     {{ $category->id === $post->category->id ? 'selected' : ''}}
                 @endisset
+                >
                 {{ old('category', $category->name )}}
             </option>
         @endforeach

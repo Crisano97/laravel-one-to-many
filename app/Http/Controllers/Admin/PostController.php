@@ -39,7 +39,7 @@ class PostController extends Controller
         //
         $post = new Post;
         $categories = Category::all();
-        return view('admin.posts.create', compact(['post', 'categories']));
+        return view('admin.posts.create', ['post' => $post, 'categories' => $categories]);
     }
 
     /**
@@ -52,7 +52,7 @@ class PostController extends Controller
     {
         //
         $data = $request->all();
-
+        // dd($data);
         $validatedData = $request->validate($this->validationRules);
 
         $newPost = new Post;
@@ -90,7 +90,7 @@ class PostController extends Controller
         //
         $post = Post::findOrFail($id);
         $categories = Category::all();
-        return view('admin.posts.edit', compact(['post', 'categories']));
+        return view('admin.posts.edit', ['post' => $post, 'categories' => $categories]);
     }
 
     /**
@@ -104,7 +104,7 @@ class PostController extends Controller
     {
         //
         $data = $request->all();
-
+        
         $validatedData = $request->validate($this->validationRules);
 
         $newPost = Post::findOrFail($id);
