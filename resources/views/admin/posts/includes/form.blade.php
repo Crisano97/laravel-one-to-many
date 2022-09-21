@@ -10,7 +10,7 @@
 </div>
 <div class="mb-3">
     <label for="input-post_image" class="form-label">post_image</label>
-    <textarea class="form-control" name="post_image" id="input-post_image" cols="30" rows="10">{{ old('post_image', $post->post_image) }}</textarea>
+    <input type="text" class="form-control" id="input-post_image" name="post_image" value="{{ old('post_image', $post->post_image) }}">
     @include('admin.posts.includes.errors', ['value' => 'post_image'])
 </div>
 

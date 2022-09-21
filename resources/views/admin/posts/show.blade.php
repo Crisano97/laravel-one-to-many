@@ -8,7 +8,7 @@
                 <img src="{{ $post->post_image }}" class="card-img-top" alt="{{ $post->title }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ $post->title }}</h5>
-                    <span>{{ $post->author }}</span>
+                    <span>{{ $post->user->name }}</span>
                     <span>{{ $post->post_date }}</span>
                     
                     <p class="card-text">{{ $post->post_content }}</p>
